@@ -75,6 +75,22 @@ func JulianFromFloat(j float64) JulianDate {
 	}
 }
 
+// DayTime returns the julianDayNumber and the nanoseconds since the
+//  beginning of the day
+func (j JulianDate) DayTime() (julianDayNumber, time int64) {
+	return j.julianDayNumber, j.time
+}
+
+// JulianFromDayTime creates a JulianDate from a julianDaynumber and the
+//  nanoseconds since the beginning of the day
+func JulianFromDayTime(julianDayNumber, time int64) JulianDate {
+	jdn := JulianDate{
+		julianDayNumber: julianDayNumber,
+		time:            time,
+	}
+	return jdn
+}
+
 // general calculations for position
 
 const rad = math.Pi / 180
